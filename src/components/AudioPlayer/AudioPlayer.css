@@ -120,4 +120,21 @@
     top: 15px;
     right: 15px;
   }
+  .music-toggle-btn {
+    padding: 6px 10px;
+    gap: 6px;
+  }
 }
+
+@media (max-width: 380px) {
+  .music-label-text {
+    display: none;
+  }
+  .music-pill-control {
+    padding: 4px;
+  }
+  .music-track-switcher {
+    padding: 3px 6px;
+  }
+}
+

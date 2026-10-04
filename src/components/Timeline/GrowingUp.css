@@ -158,16 +158,51 @@
 }
 
 @media (max-width: 768px) {
+  .growing-up-section {
+    padding: 80px 16px 60px 16px;
+  }
   .growing-central-line {
-    left: 24px;
+    left: 20px;
   }
   .timeline-spine-node {
-    left: 24px;
+    left: 20px;
+    width: 36px;
+    height: 36px;
   }
   .row-left, .row-right {
     justify-content: flex-end;
   }
   .growing-card {
-    width: calc(100% - 60px);
+    width: calc(100% - 50px);
+  }
+  .growing-card-body {
+    padding: clamp(14px, 3.5vw, 20px);
+  }
+  .growing-card-media {
+    height: 200px;
+  }
+  .growing-stage-title {
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
   }
 }
+
+@media (max-width: 400px) {
+  .growing-central-line {
+    left: 14px;
+  }
+  .timeline-spine-node {
+    left: 14px;
+    width: 28px;
+    height: 28px;
+  }
+  .node-step-num {
+    font-size: 0.65rem;
+  }
+  .growing-card {
+    width: calc(100% - 36px);
+  }
+  .growing-card-body {
+    padding: 12px 10px;
+  }
+}
+

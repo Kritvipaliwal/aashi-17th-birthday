@@ -50,13 +50,13 @@
 }
 
 .timeline-section-title {
-  font-size: 3.2rem;
+  font-size: clamp(1.8rem, 6.5vw, 3.2rem);
   letter-spacing: 0.05em;
   margin-bottom: 10px;
 }
 
 .timeline-sub-quote {
-  font-size: 1.4rem;
+  font-size: clamp(1.05rem, 3.8vw, 1.4rem);
   font-style: italic;
   color: var(--text-secondary);
 }
@@ -230,6 +230,24 @@
     grid-template-columns: 1fr;
     max-width: 440px;
     margin: 0 auto;
-    gap: 40px;
+    gap: 35px;
   }
 }
+
+@media (max-width: 600px) {
+  .beginning-section {
+    padding: 80px 16px 60px 16px;
+  }
+  .scrapbook-pinned-note {
+    max-width: min(280px, 90vw);
+    padding: 16px 18px;
+  }
+  .note-text-line {
+    font-size: 1.25rem;
+  }
+  .film-image-stage {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+}
+

@@ -298,15 +298,55 @@
 @media (max-width: 992px) {
   .hanging-photos-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .curved-string-line {
+    display: none;
+  }
   .hanging-photos-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-  .hanging-photo-frame {
-    height: 180px;
+    gap: 18px;
+    padding-top: 10px;
   }
 }
+
+@media (max-width: 520px) {
+  .family-string-section {
+    padding: 80px 16px 60px 16px;
+  }
+  .hanging-photos-grid {
+    grid-template-columns: 1fr;
+    max-width: 310px;
+    margin: 0 auto;
+    gap: 24px;
+  }
+  .hanging-photo-frame {
+    height: 240px;
+  }
+  .hanging-card-wrapper {
+    transform: none !important;
+  }
+  .hanging-photo-node {
+    transform: none !important;
+  }
+  .string-clip-peg {
+    margin-bottom: -6px;
+  }
+  .family-modal-content {
+    padding: 20px 14px 16px 14px;
+  }
+  .family-modal-media {
+    height: 240px;
+    margin-bottom: 12px;
+  }
+  .family-modal-caption {
+    font-size: 1.25rem;
+  }
+  .family-modal-desc {
+    font-size: 0.92rem;
+  }
+}
+

@@ -56,7 +56,8 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 440px;
+  aspect-ratio: 16 / 9;
+  max-height: 520px;
   background: #06060c;
 }
 
@@ -171,7 +172,7 @@
 .video-thumb-stage {
   position: relative;
   width: 100%;
-  height: 220px;
+  aspect-ratio: 16 / 9;
 }
 
 .video-thumb-img {
@@ -304,7 +305,8 @@
 .video-player-wrap {
   position: relative;
   width: 100%;
-  height: 480px;
+  aspect-ratio: 16 / 9;
+  max-height: 70vh;
   background: #000;
   border-radius: 12px;
   overflow: hidden;
@@ -325,7 +327,8 @@
 
 @media (max-width: 900px) {
   .feature-video-thumb-stage {
-    height: 280px;
+    aspect-ratio: 16 / 9;
+    height: auto;
   }
   .feature-title {
     font-size: 1.5rem;
@@ -336,6 +339,40 @@
     margin: 30px auto 0 auto;
   }
   .video-player-wrap {
-    height: 300px;
+    aspect-ratio: 16 / 9;
+    height: auto;
   }
 }
+
+@media (max-width: 600px) {
+  .videos-section {
+    padding: 80px 16px 60px 16px;
+  }
+  .feature-video-meta {
+    padding: 18px 16px;
+  }
+  .feature-title {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+  }
+  .feature-caption {
+    font-size: 1rem;
+  }
+  .video-modal-backdrop {
+    padding: 12px;
+  }
+  .video-modal-container {
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+  .video-modal-title {
+    font-size: 1.15rem;
+  }
+  .video-modal-caption {
+    font-size: 0.95rem;
+  }
+  .play-button-ring-large {
+    width: 60px;
+    height: 60px;
+  }
+}
+

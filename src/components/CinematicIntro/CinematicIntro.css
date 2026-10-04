@@ -7,8 +7,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  overflow: hidden;
+  padding: clamp(16px, 3vh, 30px) 16px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .intro-stars-layer {
@@ -249,16 +252,28 @@
 
 @media (max-width: 600px) {
   .intro-line {
-    font-size: 1.6rem;
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
   }
   .intro-line-emphasis {
-    font-size: 1.95rem;
+    font-size: clamp(1.4rem, 5vw, 1.95rem);
   }
   .intro-monument {
-    font-size: 2.2rem;
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
   }
   .intro-photo-frame {
-    width: 180px;
-    height: 240px;
+    width: min(190px, calc(100vw - 80px));
+    height: auto;
+    aspect-ratio: 3 / 4;
+  }
+  .intro-skip-btn {
+    top: 15px;
+    right: 15px;
+    padding: 5px 12px;
+    font-size: 0.7rem;
+  }
+  .enter-story-btn {
+    padding: 10px 22px;
+    font-size: 0.85rem;
   }
 }
+

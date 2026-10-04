@@ -114,13 +114,18 @@
 }
 
 @media (max-width: 600px) {
+  .surprise-quote-break-section {
+    padding: 60px 16px;
+  }
   .surprise-text-box {
-    padding: 32px 20px;
+    padding: 28px 16px;
+    border-radius: 16px;
   }
   .surprise-line-1 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
   .surprise-punchline {
-    font-size: 1.6rem;
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
   }
 }
+

@@ -300,14 +300,54 @@
 
 @media (max-width: 600px) {
   .voice-message-card {
-    padding: 18px 18px;
-    margin: 25px auto;
+    padding: 16px 14px;
+    margin: 20px auto;
+    border-radius: 16px;
+    max-width: 100%;
   }
   .voice-card-title {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
   .voice-waveform-container {
-    height: 44px;
-    padding: 6px 10px;
+    height: 42px;
+    padding: 4px 8px;
+  }
+  .waveform-bars {
+    gap: 2px;
+  }
+  .voice-play-btn {
+    padding: 8px 16px;
+    font-size: 0.82rem;
+  }
+  .voice-card-actions {
+    gap: 10px;
   }
 }
+
+@media (max-width: 360px) {
+  .voice-message-card {
+    padding: 14px 10px;
+  }
+  .voice-card-header {
+    gap: 10px;
+  }
+  .voice-mic-badge {
+    width: 40px;
+    height: 40px;
+  }
+  .mic-emoji {
+    font-size: 1.15rem;
+  }
+  .waveform-bars {
+    gap: 1.5px;
+  }
+  .voice-card-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .voice-play-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

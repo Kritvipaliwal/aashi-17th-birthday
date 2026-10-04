@@ -148,8 +148,21 @@
 }
 
 @media (max-width: 600px) {
+  .childhood-section {
+    padding: 80px 16px 60px 16px;
+  }
   .polaroid-scrapbook-grid {
     grid-template-columns: 1fr;
-    max-width: 300px;
+    max-width: min(320px, 100%);
+    margin: 25px auto 0 auto;
+    gap: 25px;
+  }
+  .polaroid-photo-frame {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+  .polaroid-wrapper {
+    transform: none !important;
   }
 }
+

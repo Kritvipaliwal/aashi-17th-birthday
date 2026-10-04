@@ -509,20 +509,24 @@
   color: #fff;
 }
 
-@media (max-width: 1100px) {
-  .pos-top-left { left: -80px; width: 120px; }
-  .pos-top-right { right: -80px; width: 120px; }
-  .pos-mid-left { left: -110px; width: 125px; }
-  .pos-mid-right { right: -110px; width: 125px; }
-  .pos-bottom-left { left: -80px; width: 120px; }
-  .pos-bottom-right { right: -80px; width: 120px; }
+@media (max-width: 1200px) {
+  .pos-top-left { left: -70px; width: 120px; }
+  .pos-top-right { right: -70px; width: 120px; }
+  .pos-mid-left { left: -90px; width: 120px; }
+  .pos-mid-right { right: -90px; width: 120px; }
+  .pos-bottom-left { left: -70px; width: 115px; }
+  .pos-bottom-right { right: -70px; width: 115px; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
+  .hero-film-strip-ribbon {
+    display: none;
+  }
   .hero-collage-stage {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
   }
   .hero-floating-card {
     position: relative;
@@ -531,27 +535,45 @@
     right: auto !important;
     bottom: auto !important;
     display: inline-block;
-    margin: 8px;
-    width: 130px;
+    margin: 6px;
+    width: min(140px, 42vw);
+    transform: none !important;
   }
 }
 
 @media (max-width: 600px) {
+  .hero-section {
+    padding: 80px 16px 50px 16px;
+  }
   .hero-name {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 8.5vw, 3.4rem);
   }
   .hero-greeting {
-    font-size: 1.6rem;
+    font-size: clamp(1.3rem, 4.5vw, 1.7rem);
+  }
+  .hero-central-motto {
+    font-size: 1.15rem;
+    padding: 0 10px;
+  }
+  .hero-portrait-card {
+    padding: 10px 10px 38px 10px;
+    border-radius: 16px;
   }
   .hero-portrait-media-wrap {
-    width: 260px;
-    height: 350px;
+    width: min(290px, calc(100vw - 50px));
+    height: auto;
+    aspect-ratio: 3 / 4;
   }
   .hero-stats-row {
-    padding: 12px 20px;
-    gap: 16px;
+    padding: 10px 16px;
+    gap: 12px;
+    flex-wrap: wrap;
   }
   .stat-number {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+  }
+  .stat-label {
+    font-size: 0.68rem;
   }
 }
+

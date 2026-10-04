@@ -125,14 +125,14 @@
 }
 
 .grand-birthday-title {
-  font-size: 3.8rem;
+  font-size: clamp(2.2rem, 7vw, 3.8rem);
   letter-spacing: 0.08em;
   line-height: 1.1;
   margin-bottom: 4px;
 }
 
 .grand-sister-name {
-  font-size: 2.4rem;
+  font-size: clamp(1.6rem, 5.5vw, 2.4rem);
   letter-spacing: 0.12em;
   color: #fff;
   margin-bottom: 30px;
@@ -154,8 +154,9 @@
 
 .celebration-photo-frame {
   position: relative;
-  width: 300px;
-  height: 400px;
+  width: min(300px, calc(100vw - 60px));
+  aspect-ratio: 3 / 4;
+  height: auto;
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid var(--border-gold);
@@ -234,26 +235,37 @@
 }
 
 @media (max-width: 600px) {
-  .grand-birthday-title {
-    font-size: 2.5rem;
-  }
-  .grand-sister-name {
-    font-size: 1.8rem;
+  .final-celebration-section {
+    padding: 80px 16px 60px 16px;
   }
   .celebration-photo-frame {
-    width: 250px;
-    height: 340px;
+    width: min(260px, calc(100vw - 48px));
+    aspect-ratio: 3 / 4;
+    height: auto;
   }
   .celebration-whisper {
-    font-size: 1.6rem;
+    font-size: clamp(1.3rem, 4.5vw, 1.6rem);
   }
   .celebration-lead {
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 5.5vw, 2rem);
+  }
+  .final-screen-card {
+    padding: 24px 16px;
+  }
+  .final-lines {
+    gap: 6px;
   }
   .final-line-1, .final-line-2 {
-    font-size: 1.4rem;
+    font-size: clamp(1.2rem, 4vw, 1.4rem);
   }
   .final-line-love {
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+  }
+  .final-blessing-title {
+    font-size: clamp(1.3rem, 4.5vw, 1.6rem);
+  }
+  .final-small-reason {
+    font-size: 1.05rem;
   }
 }
+

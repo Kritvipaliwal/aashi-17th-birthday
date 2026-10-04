@@ -242,10 +242,39 @@
 }
 
 @media (max-width: 600px) {
+  .teen-era-section {
+    padding: 80px 0 60px 0;
+  }
+  .teen-era-container {
+    padding: 0 16px;
+  }
   .teen-section-title {
-    font-size: 2.2rem;
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+  }
+  .teen-sub-quote {
+    font-size: 1.05rem;
+  }
+  .teen-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 25px;
   }
   .teen-3d-card {
-    flex: 0 0 280px;
+    flex: 0 0 min(280px, calc(100vw - 40px));
+  }
+  .teen-card-media-wrapper {
+    height: 300px;
+  }
+  .teen-scrapbook-quote-card {
+    margin: 30px 16px 10px 16px;
+    padding: 20px 16px 16px 16px;
+  }
+  .quote-main {
+    font-size: 1.35rem;
+  }
+  .quote-highlight {
+    font-size: 1.5rem;
   }
 }
+

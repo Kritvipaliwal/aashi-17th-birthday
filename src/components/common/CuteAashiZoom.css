@@ -372,3 +372,31 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 420px) {
+  .cute-zoom-modal {
+    padding: 20px 14px 16px 14px;
+    border-radius: 18px;
+    max-width: 96vw;
+  }
+  .modal-zoom-display {
+    width: 160px;
+    height: 160px;
+  }
+  .display-spotlight {
+    width: 150px;
+    height: 150px;
+  }
+  .modal-hero-img {
+    width: 140px;
+    height: 140px;
+  }
+  .modal-title {
+    font-size: 1.1rem;
+  }
+  .angry-eyebrow-tag {
+    font-size: 0.78rem;
+    padding: 3px 8px;
+  }
+}
+

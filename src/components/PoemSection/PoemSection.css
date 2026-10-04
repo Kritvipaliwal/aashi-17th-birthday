@@ -425,26 +425,68 @@
   border-color: rgba(255, 255, 255, 0.15);
 }
 
-@media (max-width: 600px) {
-  .cinematic-letter-stage {
-    padding: 35px 20px 25px 20px;
-  }
-  .poem-whisper-title {
-    font-size: 1.8rem;
-  }
-  .poem-line {
-    font-size: 1.35rem;
-  }
-  .special-you-token {
-    font-size: 2.6rem;
-  }
-  .poem-birthday-highlight {
-    font-size: 2rem;
-  }
-  .poem-final-highlight {
-    font-size: 1.45rem;
+@media (max-width: 768px) {
+  .collage-photo-wrap {
+    width: min(240px, 45vw);
+    height: auto;
+    aspect-ratio: 3 / 4;
   }
 }
+
+@media (max-width: 600px) {
+  .poem-section {
+    padding: 80px 14px 60px 14px;
+  }
+  .cinematic-letter-stage {
+    padding: clamp(24px, 5vw, 40px) clamp(14px, 4vw, 24px);
+    border-radius: 18px;
+  }
+  .poem-whisper-title {
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+  }
+  .poem-line {
+    font-size: clamp(1.15rem, 3.8vw, 1.45rem);
+    line-height: 1.5;
+  }
+  .special-you-token {
+    font-size: clamp(2.2rem, 7vw, 2.9rem);
+  }
+  .poem-birthday-highlight {
+    font-size: clamp(1.6rem, 5.5vw, 2.2rem);
+  }
+  .poem-final-highlight {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+  }
+  .poem-controls-bar {
+    margin-top: 30px;
+    padding-top: 18px;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .poem-btn-group {
+    width: 100%;
+    justify-content: center;
+  }
+  .poem-ctrl-btn {
+    padding: 7px 14px;
+    font-size: 0.78rem;
+  }
+  .now-read-this-stage {
+    padding: 16px 14px;
+    margin: 24px auto 16px auto;
+  }
+  .now-word {
+    font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+  }
+  .read-this-phrase {
+    font-size: clamp(1.9rem, 5vw, 2.7rem);
+  }
+  .collage-photo-wrap {
+    display: none; /* Keep mobile letter reading clear and fast */
+  }
+}
+
 
 /* =========================================================
    EMOTIONAL PRE-POEM RECORDING STAGE & DUCKING ATMOSPHERE

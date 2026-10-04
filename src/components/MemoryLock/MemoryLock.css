@@ -7,10 +7,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow-y: auto;
-  padding: 30px 20px;
+  overflow-x: hidden;
+  padding: clamp(20px, 4vh, 40px) 14px 60px 14px;
   color: var(--text-primary);
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .lock-atmosphere {
@@ -776,6 +779,7 @@
   .lock-page-layout {
     flex-direction: column;
     gap: 20px;
+    margin: auto 0;
   }
   .lock-side-photo {
     flex: 0 0 auto;
@@ -792,25 +796,64 @@
   }
 }
 
-@media (max-width: 480px) {
-  .circular-lock-container {
-    width: 300px;
-    height: 300px;
-  }
-  .lock-node-wrap {
-    width: 28px;
-    height: 28px;
-    margin-left: -14px;
-    margin-top: -14px;
-  }
-  .lock-center-hub {
-    width: 145px;
-    height: 145px;
-  }
-  .hub-counter {
-    font-size: 1.2rem;
-  }
+@media (max-width: 600px) {
   .lock-main-title {
-    font-size: 1.65rem;
+    font-size: clamp(1.4rem, 5.5vw, 1.9rem);
+  }
+  .lock-instruction {
+    font-size: 0.82rem;
+    padding: 0 8px;
+  }
+  .lock-actions {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  .action-btn-gold, .action-btn-subtle {
+    width: 100%;
+    justify-content: center;
+  }
+  .lock-side-photo {
+    width: min(280px, 90vw);
   }
 }
+
+@media (max-width: 440px) {
+  .circular-lock-container {
+    transform: scale(0.86);
+    transform-origin: center center;
+    margin: -15px auto -15px auto;
+  }
+  .keypad-rows {
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+  .keypad-row {
+    gap: 3px;
+  }
+  .keypad-btn {
+    height: 35px;
+    font-size: 0.76rem;
+    min-width: 20px;
+    max-width: 32px;
+  }
+}
+
+@media (max-width: 380px) {
+  .circular-lock-container {
+    transform: scale(0.76);
+    transform-origin: center center;
+    margin: -32px auto -32px auto;
+  }
+  .keypad-row {
+    gap: 2px;
+  }
+  .keypad-btn {
+    height: 33px;
+    font-size: 0.7rem;
+    min-width: 18px;
+    max-width: 28px;
+    border-radius: 4px;
+  }
+}
+
