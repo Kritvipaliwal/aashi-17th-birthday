@@ -1,0 +1,251 @@
+.teen-era-section {
+  position: relative;
+  padding: 120px 0;
+  background-image: linear-gradient(
+    rgba(7, 7, 12, 0.88),
+    rgba(6, 6, 9, 0.95)
+  ), url('/assets/photos/night_walk_sisters.png');
+  background-size: cover;
+  background-position: center 25%;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.teen-ambient-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.teen-light-streak {
+  position: absolute;
+  width: 450px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(242, 167, 184, 0.4), transparent);
+  filter: blur(2px);
+  transform: rotate(-15deg);
+}
+
+.streak-1 {
+  top: 15%;
+  left: -5%;
+}
+
+.streak-2 {
+  bottom: 20%;
+  right: -5%;
+  background: linear-gradient(90deg, transparent, rgba(223, 186, 115, 0.35), transparent);
+}
+
+.teen-era-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.teen-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.badge-dark {
+  background: rgba(242, 167, 184, 0.08);
+  border-color: var(--border-rose);
+}
+
+.teen-section-title {
+  font-size: 3rem;
+  letter-spacing: 0.05em;
+  margin: 8px 0;
+}
+
+.teen-sub-quote {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.teen-nav-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.teen-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #11111a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.teen-nav-btn:hover {
+  background: rgba(242, 167, 184, 0.15);
+  border-color: var(--rose-primary);
+  color: var(--rose-light);
+}
+
+/* Horizontal Scroll */
+.teen-horizontal-scroll {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px 5px 35px 5px;
+  scrollbar-width: thin;
+  perspective: 1000px;
+}
+
+.teen-horizontal-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.teen-horizontal-scroll::-webkit-scrollbar-thumb {
+  background: rgba(242, 167, 184, 0.3);
+  border-radius: 2px;
+}
+
+.teen-3d-card {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+  background: #0f0f18;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.teen-3d-card:hover {
+  border-color: rgba(242, 167, 184, 0.4);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(242, 167, 184, 0.15);
+}
+
+.teen-card-media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 380px;
+}
+
+.teen-card-img {
+  width: 100%;
+  height: 100%;
+}
+
+.teen-card-vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(15, 15, 24, 0.95) 100%);
+  pointer-events: none;
+}
+
+.teen-era-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.teen-card-info {
+  padding: 20px;
+}
+
+.teen-card-title {
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.teen-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Handwritten Scrapbook Quote Card (Panel 9) */
+.teen-scrapbook-quote-card {
+  position: relative;
+  max-width: 440px;
+  margin: 40px auto 10px auto;
+  background: #fdfbf7;
+  padding: 24px 30px 20px 30px;
+  border-radius: 6px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 25px rgba(242, 167, 184, 0.2);
+  color: #1f1b26;
+  text-align: center;
+  transform: rotate(-1.5deg);
+  transition: transform 0.3s ease;
+}
+
+.teen-scrapbook-quote-card:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+.scrapbook-tape-top {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 28px;
+  background: rgba(242, 167, 184, 0.55);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.scrapbook-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.quote-main {
+  font-size: 1.7rem;
+  color: #2c2534;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.quote-highlight {
+  font-size: 1.85rem;
+  color: #a82e4e;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.scrapbook-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: #7a6e82;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .teen-section-title {
+    font-size: 2.2rem;
+  }
+  .teen-3d-card {
+    flex: 0 0 280px;
+  }
+}

@@ -1,0 +1,123 @@
+/* AudioPlayer.css */
+.audio-player-fixed {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  z-index: 950;
+}
+
+.music-pill-control {
+  display: flex;
+  align-items: center;
+  background: rgba(18, 18, 28, 0.8);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-gold);
+  border-radius: 30px;
+  padding: 4px 6px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(223, 186, 115, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.music-pill-control:hover {
+  border-color: var(--gold-primary);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), 0 0 25px var(--gold-glow);
+}
+
+.music-toggle-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  color: var(--gold-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: all 0.25s ease;
+}
+
+.music-note-symbol {
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--gold-primary);
+}
+
+.music-label-text {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+}
+
+.music-paused .music-note-symbol {
+  opacity: 0.5;
+}
+
+.music-paused .music-label-text {
+  color: var(--text-muted);
+}
+
+/* Sound Wave Equalizer Bars */
+.music-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 12px;
+  margin-left: 2px;
+}
+
+.music-bars .bar {
+  width: 2.5px;
+  background: var(--gold-primary);
+  border-radius: 2px;
+  animation: equalize 0.9s infinite ease-in-out alternate;
+}
+
+.bar-1 { height: 5px; animation-delay: 0.1s; }
+.bar-2 { height: 11px; animation-delay: 0.35s; }
+.bar-3 { height: 7px; animation-delay: 0.2s; }
+
+@keyframes equalize {
+  0% { height: 3px; }
+  100% { height: 12px; }
+}
+
+/* Mini Track Switcher */
+.music-track-switcher {
+  background: rgba(223, 186, 115, 0.12);
+  border: 1px solid rgba(223, 186, 115, 0.3);
+  border-radius: 12px;
+  padding: 3px 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--gold-light);
+  transition: all 0.2s ease;
+  margin-left: 4px;
+}
+
+.music-track-switcher:hover {
+  background: rgba(223, 186, 115, 0.25);
+}
+
+.switcher-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold-primary);
+}
+
+.switcher-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .audio-player-fixed {
+    top: 15px;
+    right: 15px;
+  }
+}

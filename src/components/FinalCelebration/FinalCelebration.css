@@ -1,0 +1,259 @@
+.final-celebration-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 140px 20px 80px 20px;
+  background-image: linear-gradient(
+    rgba(14, 12, 22, 0.86),
+    rgba(3, 3, 5, 0.94)
+  ), url('/assets/photos/cake_celebration.jpg');
+  background-size: cover;
+  background-position: center 20%;
+  background-attachment: fixed;
+  overflow: hidden;
+  text-align: center;
+}
+
+.celebration-sky-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Distant Fireworks */
+.firework-burst {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: fireworkPop 4s infinite ease-out;
+}
+
+.burst-1 {
+  top: 15%;
+  left: 18%;
+  background: radial-gradient(circle, rgba(223, 186, 115, 0.45) 0%, transparent 70%);
+  animation-delay: 0.5s;
+}
+
+.burst-2 {
+  top: 25%;
+  right: 15%;
+  background: radial-gradient(circle, rgba(242, 167, 184, 0.45) 0%, transparent 70%);
+  animation-delay: 2.2s;
+}
+
+.burst-3 {
+  top: 40%;
+  left: 30%;
+  background: radial-gradient(circle, rgba(255, 230, 160, 0.4) 0%, transparent 70%);
+  animation-delay: 1.4s;
+}
+
+@keyframes fireworkPop {
+  0% { transform: scale(0.1); opacity: 0; }
+  50% { transform: scale(1.6); opacity: 0.7; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.grand-light-leak {
+  position: absolute;
+  top: -20%;
+  left: 20%;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(223, 186, 115, 0.12) 0%, transparent 70%);
+  filter: blur(80px);
+}
+
+.celebration-content {
+  position: relative;
+  z-index: 10;
+  max-width: 780px;
+  width: 100%;
+}
+
+/* Intro Stages */
+.celebration-intro-stage {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.celebration-whisper {
+  font-size: 2.2rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.celebration-lead {
+  font-size: 3rem;
+  font-style: italic;
+}
+
+/* Grand Reveal */
+.grand-reveal-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.celebration-crown-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.glowing-17-pill {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  background: rgba(223, 186, 115, 0.15);
+  border: 1px solid var(--border-gold);
+  padding: 4px 18px;
+  border-radius: 30px;
+  box-shadow: 0 0 20px var(--gold-glow);
+}
+
+.grand-birthday-title {
+  font-size: 3.8rem;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.grand-sister-name {
+  font-size: 2.4rem;
+  letter-spacing: 0.12em;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+/* Portrait Stage */
+.celebration-portrait-stage {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.portrait-outer-glow {
+  position: absolute;
+  inset: -15px;
+  border-radius: 26px;
+  background: radial-gradient(circle, rgba(223, 186, 115, 0.25) 0%, transparent 70%);
+  filter: blur(25px);
+}
+
+.celebration-photo-frame {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px var(--gold-glow);
+}
+
+.celebration-img {
+  width: 100%;
+  height: 100%;
+}
+
+.chapter-begins-line {
+  font-size: 1.85rem;
+  font-style: italic;
+  color: var(--gold-light);
+  margin-bottom: 40px;
+}
+
+/* Final Screen Card */
+.final-screen-card {
+  max-width: 580px;
+  width: 100%;
+  padding: 35px 30px;
+  border-radius: 20px;
+  border-color: rgba(223, 186, 115, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.final-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.final-line-1,
+.final-line-2 {
+  font-size: 1.8rem;
+  color: var(--text-secondary);
+}
+
+.final-line-love {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.final-birthday-blessing {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.final-blessing-title {
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.final-small-reason {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.final-actions {
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .grand-birthday-title {
+    font-size: 2.5rem;
+  }
+  .grand-sister-name {
+    font-size: 1.8rem;
+  }
+  .celebration-photo-frame {
+    width: 250px;
+    height: 340px;
+  }
+  .celebration-whisper {
+    font-size: 1.6rem;
+  }
+  .celebration-lead {
+    font-size: 2rem;
+  }
+  .final-line-1, .final-line-2 {
+    font-size: 1.4rem;
+  }
+  .final-line-love {
+    font-size: 1.8rem;
+  }
+}

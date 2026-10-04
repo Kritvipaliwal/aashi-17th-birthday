@@ -1,0 +1,126 @@
+/* SurpriseQuoteBreak.css */
+.surprise-quote-break-section {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  overflow: hidden;
+  background-color: var(--bg-midnight);
+}
+
+.surprise-bg-photo-layer {
+  position: absolute;
+  inset: -15px;
+  background-size: cover;
+  background-position: center 20%;
+  filter: blur(12px) brightness(0.35) contrast(1.1);
+  transform: scale(1.05);
+  transition: transform 12s ease-out;
+  pointer-events: none;
+}
+
+.surprise-quote-break-section:hover .surprise-bg-photo-layer {
+  transform: scale(1.12);
+}
+
+.surprise-dark-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 7, 10, 0.85) 0%,
+    rgba(13, 13, 20, 0.6) 50%,
+    rgba(7, 7, 10, 0.9) 100%
+  );
+  pointer-events: none;
+}
+
+.surprise-film-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Requirement 10: Editorial giant background text with very low opacity */
+.surprise-background-giant-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(3.5rem, 12vw, 10rem);
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.025);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+  user-select: none;
+}
+
+.surprise-content-container {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+.surprise-text-box {
+  padding: 48px 40px;
+  background: rgba(15, 15, 25, 0.7);
+  border: 1px solid rgba(223, 186, 115, 0.3);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(223, 186, 115, 0.15);
+  backdrop-filter: blur(20px);
+}
+
+.interruption-warning-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  background: rgba(223, 186, 115, 0.15);
+  border: 1px solid rgba(223, 186, 115, 0.35);
+  padding: 6px 18px;
+  border-radius: 30px;
+  margin-bottom: 24px;
+}
+
+.surprise-line-1 {
+  font-size: 1.65rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.surprise-line-2 {
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 22px;
+}
+
+.surprise-punchline {
+  font-size: 2rem;
+  color: var(--rose-light);
+  text-shadow: 0 0 20px rgba(242, 167, 184, 0.4);
+}
+
+@media (max-width: 600px) {
+  .surprise-text-box {
+    padding: 32px 20px;
+  }
+  .surprise-line-1 {
+    font-size: 1.3rem;
+  }
+  .surprise-punchline {
+    font-size: 1.6rem;
+  }
+}

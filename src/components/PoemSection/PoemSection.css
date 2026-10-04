@@ -1,0 +1,447 @@
+.poem-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 140px 20px 100px 20px;
+  background: #06060a;
+  overflow: hidden;
+  transition: background-color 1.2s ease;
+}
+
+/* Special "You." screen darkening mode */
+.poem-section.special-you-mode {
+  background-color: #010103;
+}
+
+/* Floating Birthday Particles */
+.poem-floating-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.poem-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: floatPoemParticle infinite ease-in-out alternate;
+}
+
+.particle-type-0 {
+  background: var(--gold-light);
+  box-shadow: 0 0 8px var(--gold-primary);
+  opacity: 0.35;
+}
+
+.particle-type-1 {
+  background: var(--rose-primary);
+  box-shadow: 0 0 8px var(--rose-glow);
+  opacity: 0.3;
+}
+
+.particle-type-2 {
+  background: #ffffff;
+  box-shadow: 0 0 6px #fff;
+  opacity: 0.25;
+}
+
+@keyframes floatPoemParticle {
+  0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
+  100% { transform: translateY(-40px) scale(1.3); opacity: 0.7; }
+}
+
+/* Soft Background Collage */
+.poem-bg-collage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.collage-photo-wrap {
+  position: absolute;
+  width: 320px;
+  height: 440px;
+  border-radius: 20px;
+  overflow: hidden;
+  opacity: 0.08;
+  filter: blur(12px) grayscale(40%);
+  transition: all 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.95);
+  pointer-events: auto;
+}
+
+.collage-photo-wrap:hover {
+  opacity: 0.35;
+  filter: blur(2px) grayscale(0%);
+  transform: scale(1.02);
+  box-shadow: 0 0 40px var(--gold-glow);
+}
+
+.photo-baby {
+  top: 10%;
+  left: 3%;
+  transform: rotate(-5deg);
+}
+
+.photo-childhood {
+  top: 40%;
+  right: 2%;
+  transform: rotate(6deg);
+}
+
+.photo-current {
+  bottom: 8%;
+  left: 6%;
+  transform: rotate(3deg);
+}
+
+.collage-photo-wrap.active-memory {
+  opacity: 0.22;
+  filter: blur(6px) grayscale(10%);
+  transform: scale(1);
+}
+
+.special-you-mode .photo-current.active-memory {
+  opacity: 0.45;
+  filter: blur(0px);
+  box-shadow: 0 0 60px var(--gold-glow);
+  transform: scale(1.05);
+}
+
+.collage-img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Light Burst */
+.light-burst-flash {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 80vh;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 230, 160, 0.25) 0%, transparent 70%);
+  filter: blur(60px);
+  animation: burstAnim 1.6s ease-out forwards;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes burstAnim {
+  0% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
+  35% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+/* Content Container */
+.poem-container {
+  position: relative;
+  z-index: 10;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.poem-preface {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.poem-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 18px;
+  border-radius: 30px;
+  background: rgba(223, 186, 115, 0.08);
+  border: 1px solid var(--border-gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+}
+
+.poem-whisper-title {
+  font-size: 2.4rem;
+  font-style: italic;
+  letter-spacing: 0.03em;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+/* Voice Narrator Pill */
+.voice-narrator-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.voice-narrate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: rgba(223, 186, 115, 0.12);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-light);
+}
+
+.voice-narrate-btn:hover {
+  background: rgba(223, 186, 115, 0.22);
+  transform: translateY(-1px);
+}
+
+.voice-narrate-btn.voice-off {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--text-muted);
+}
+
+.narrator-speaking-label {
+  font-size: 0.78rem;
+  color: var(--rose-primary);
+  letter-spacing: 0.05em;
+  animation: pulseSpeech 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseSpeech {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Cinematic Letter Stage */
+.cinematic-letter-stage {
+  position: relative;
+  background: rgba(14, 14, 22, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(223, 186, 115, 0.2);
+  border-radius: 24px;
+  padding: 55px 50px 35px 50px;
+  box-shadow: 0 30px 80px -10px rgba(0, 0, 0, 0.95), 0 0 50px rgba(223, 186, 115, 0.08);
+}
+
+.letter-corner-accent {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-color: var(--gold-primary);
+  border-style: solid;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.corner-tl {
+  top: 15px;
+  left: 15px;
+  border-width: 2px 0 0 2px;
+}
+
+.corner-br {
+  bottom: 15px;
+  right: 15px;
+  border-width: 0 2px 2px 0;
+}
+
+/* Verses */
+.letter-verses {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  min-height: 240px;
+}
+
+.poem-line {
+  font-size: 1.6rem;
+  line-height: 1.55;
+  color: rgba(251, 249, 245, 0.88);
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+}
+
+.poem-line.line-newest {
+  color: #fff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+}
+
+/* Keyword Highlights */
+.keyword-highlight {
+  font-weight: 600;
+  display: inline-block;
+  padding: 0 4px;
+}
+
+.keyword-gold {
+  color: var(--gold-light);
+  text-shadow: 0 0 12px var(--gold-glow);
+}
+
+.keyword-rose {
+  color: var(--rose-primary);
+  text-shadow: 0 0 12px var(--rose-glow);
+}
+
+/* Special "You." Word */
+.special-you-token {
+  display: inline-block;
+  font-size: 3.4rem;
+  letter-spacing: 0.1em;
+  color: var(--gold-light);
+  text-shadow: 0 0 35px var(--gold-glow), 0 0 60px rgba(255, 255, 255, 0.4);
+  margin: 16px 0;
+  animation: slowBreath 3s infinite ease-in-out alternate;
+}
+
+@keyframes slowBreath {
+  0% { transform: scale(0.96); }
+  100% { transform: scale(1.04); }
+}
+
+.poem-birthday-highlight {
+  font-size: 2.6rem;
+  display: block;
+  letter-spacing: 0.06em;
+  margin: 18px 0 10px 0;
+  line-height: 1.2;
+}
+
+.poem-final-highlight {
+  font-size: 1.85rem;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.heart-pulse-icon {
+  animation: heartThrob 1.2s infinite ease-in-out;
+}
+
+@keyframes heartThrob {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+/* Candles Stage */
+.poem-candles-stage {
+  margin-top: 30px;
+  padding: 10px 0;
+}
+
+/* Controls Bar */
+.poem-controls-bar {
+  margin-top: 45px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.poem-progress-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.poem-line-counter {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.poem-progress-track {
+  width: 140px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.poem-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+  transition: width 0.4s ease;
+}
+
+.poem-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.poem-ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.poem-ctrl-btn:hover {
+  background: rgba(223, 186, 115, 0.15);
+  border-color: var(--gold-primary);
+  color: var(--gold-light);
+}
+
+.poem-ctrl-btn.btn-highlight {
+  background: rgba(223, 186, 115, 0.18);
+  border-color: var(--border-gold);
+  color: var(--gold-light);
+}
+
+.poem-ctrl-btn.btn-subtle {
+  border-color: transparent;
+  color: var(--text-muted);
+}
+
+.poem-ctrl-btn.btn-subtle:hover {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 600px) {
+  .cinematic-letter-stage {
+    padding: 35px 20px 25px 20px;
+  }
+  .poem-whisper-title {
+    font-size: 1.8rem;
+  }
+  .poem-line {
+    font-size: 1.35rem;
+  }
+  .special-you-token {
+    font-size: 2.6rem;
+  }
+  .poem-birthday-highlight {
+    font-size: 2rem;
+  }
+  .poem-final-highlight {
+    font-size: 1.45rem;
+  }
+}

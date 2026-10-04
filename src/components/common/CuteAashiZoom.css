@@ -1,0 +1,374 @@
+/* CuteAashiZoom.css - Playful First-Page Zooming Avatar Card */
+
+.cute-aashi-card {
+  position: relative;
+  background: rgba(18, 14, 22, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(223, 186, 115, 0.35);
+  border-radius: 18px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55), 0 0 20px rgba(223, 186, 115, 0.12);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  z-index: 50;
+  max-width: 320px;
+}
+
+.cute-aashi-card:hover {
+  border-color: rgba(223, 186, 115, 0.7);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 28px rgba(223, 186, 115, 0.25);
+  transform: translateY(-3px) scale(1.03);
+}
+
+.card-floating-pos {
+  margin: 15px auto 25px auto;
+}
+
+.cute-card-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: 18px;
+  background: radial-gradient(circle at 30% 20%, rgba(223, 186, 115, 0.2), transparent 70%);
+  pointer-events: none;
+}
+
+.cute-badge-tag {
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  background: linear-gradient(135deg, #dfba73, #f2a7b8);
+  color: #120e16;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.cute-avatar-frame-wrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: radial-gradient(circle, rgba(223, 88, 122, 0.25) 0%, rgba(14, 10, 18, 0.9) 80%);
+  border: 2px solid rgba(223, 186, 115, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.cute-pulsing-aura {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(223, 186, 115, 0.4);
+  animation: rotateAura 12s linear infinite;
+}
+
+@keyframes rotateAura {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.cute-avatar-img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+  border-radius: 50%;
+}
+
+.cute-zoom-indicator {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  background: rgba(223, 186, 115, 0.95);
+  color: #120e16;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.cute-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+}
+
+.cute-question-text {
+  font-size: 0.95rem;
+  color: #fff;
+  line-height: 1.3;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.cute-tap-hint {
+  font-size: 0.72rem;
+  color: var(--gold-primary, #dfba73);
+  opacity: 0.85;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* =======================================
+   EXPANDED ZOOM MODAL
+   ======================================= */
+.cute-zoom-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  background: rgba(4, 3, 6, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.cute-zoom-modal {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: rgba(18, 14, 24, 0.94);
+  border: 1px solid rgba(223, 186, 115, 0.4);
+  border-radius: 24px;
+  padding: 28px 24px 22px 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(223, 186, 115, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cute-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cute-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.modal-header {
+  margin-bottom: 16px;
+}
+
+.modal-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(223, 186, 115, 0.12);
+  border: 1px solid rgba(223, 186, 115, 0.25);
+  color: var(--gold-primary, #dfba73);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.modal-title {
+  font-size: 1.35rem;
+  margin: 0;
+  color: #fff;
+  font-weight: 600;
+}
+
+.modal-zoom-display {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 10px auto 16px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.display-spotlight {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(223, 88, 122, 0.3) 0%, rgba(223, 186, 115, 0.15) 50%, transparent 70%);
+  filter: blur(20px);
+}
+
+.modal-hero-img {
+  width: 190px;
+  height: 190px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.65));
+  z-index: 2;
+  cursor: zoom-in;
+}
+
+.angry-eyebrow-tag {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(22, 16, 26, 0.92);
+  border: 1px solid rgba(223, 186, 115, 0.4);
+  color: #fff;
+  font-size: 0.88rem;
+  padding: 4px 12px;
+  border-radius: 12px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
+.modal-vote-section {
+  width: 100%;
+  margin-top: 14px;
+}
+
+.vote-prompt {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 12px;
+}
+
+.vote-buttons-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.vote-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+}
+
+.btn-cute {
+  background: rgba(242, 167, 184, 0.16);
+  border-color: rgba(242, 167, 184, 0.4);
+  color: #f2a7b8;
+}
+
+.btn-cute:hover {
+  background: rgba(242, 167, 184, 0.28);
+  transform: translateY(-2px);
+}
+
+.btn-angry {
+  background: rgba(223, 186, 115, 0.16);
+  border-color: rgba(223, 186, 115, 0.4);
+  color: #dfba73;
+}
+
+.btn-angry:hover {
+  background: rgba(223, 186, 115, 0.28);
+  transform: translateY(-2px);
+}
+
+.reaction-banner {
+  margin-top: 14px;
+  background: rgba(223, 186, 115, 0.15);
+  border: 1px dashed rgba(223, 186, 115, 0.4);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.modal-footer {
+  margin-top: 18px;
+}
+
+.modal-dismiss-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.modal-dismiss-btn:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 640px) {
+  .cute-aashi-card {
+    max-width: 90%;
+    padding: 10px 14px;
+  }
+  
+  .cute-avatar-frame-wrap {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .cute-avatar-img {
+    width: 46px;
+    height: 46px;
+  }
+  
+  .cute-question-text {
+    font-size: 0.85rem;
+  }
+
+  .vote-buttons-row {
+    flex-direction: column;
+  }
+
+  .vote-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

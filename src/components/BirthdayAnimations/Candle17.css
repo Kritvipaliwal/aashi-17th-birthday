@@ -1,0 +1,142 @@
+.candle-17-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 18px;
+  margin: 25px auto;
+  transition: all 0.6s ease;
+}
+
+.candle-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Flame */
+.candle-flame-wrapper {
+  position: relative;
+  width: 24px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+}
+
+.candle-flame-halo {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 180, 50, 0.45) 0%, rgba(223, 186, 115, 0.1) 60%, transparent 80%);
+  filter: blur(8px);
+  animation: flameHaloFlicker 1.8s infinite ease-in-out alternate;
+}
+
+.candle-flame-core {
+  position: absolute;
+  bottom: 4px;
+  width: 14px;
+  height: 24px;
+  background: linear-gradient(180deg, #ffffff 0%, #ffe066 35%, #ff9900 75%, #cc3300 100%);
+  border-radius: 50% 50% 35% 35% / 70% 70% 30% 30%;
+  box-shadow: 0 0 16px rgba(255, 180, 50, 0.9);
+  animation: flameFlicker 0.22s infinite alternate ease-in-out;
+  transform-origin: bottom center;
+}
+
+@keyframes flameFlicker {
+  0% { transform: scale(1) rotate(-1.5deg); }
+  50% { transform: scale(1.08, 0.96) rotate(1deg); }
+  100% { transform: scale(0.96, 1.04) rotate(-0.5deg); }
+}
+
+@keyframes flameHaloFlicker {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  100% { transform: scale(1.2); opacity: 1; }
+}
+
+.candle-wick {
+  position: absolute;
+  bottom: -2px;
+  width: 2px;
+  height: 8px;
+  background: #2a2015;
+  border-radius: 1px;
+}
+
+/* Wax Numeral */
+.candle-wax-body {
+  width: 48px;
+  height: 64px;
+  background: linear-gradient(145deg, #dfba73 0%, #b88f42 50%, #7d5b1d 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7), inset 0 2px 4px rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 240, 180, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.candle-wax-body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 8px 8px 0 0;
+}
+
+.candle-num-text {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Intense Glow when "but because you're you." appears */
+.candle-intense-glow .candle-flame-halo {
+  width: 75px;
+  height: 75px;
+  background: radial-gradient(circle, rgba(255, 210, 80, 0.7) 0%, rgba(223, 186, 115, 0.3) 60%, transparent 80%);
+  filter: blur(14px);
+}
+
+.candle-intense-glow .candle-flame-core {
+  box-shadow: 0 0 28px rgba(255, 200, 80, 1), 0 0 45px rgba(242, 167, 184, 0.5);
+  transform: scale(1.25);
+}
+
+.candle-rising-sparkles {
+  position: absolute;
+  bottom: 20px;
+  width: 20px;
+  height: 60px;
+  pointer-events: none;
+}
+
+.spark-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #ffe680;
+  box-shadow: 0 0 6px #ffd700;
+  animation: riseSpark 1.6s infinite ease-out;
+}
+
+.spark-1 { left: 4px; animation-delay: 0.1s; }
+.spark-2 { right: 3px; animation-delay: 0.6s; }
+.spark-3 { left: 8px; animation-delay: 0.3s; }
+.spark-4 { right: 6px; animation-delay: 0.9s; }
+
+@keyframes riseSpark {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-50px) scale(0); opacity: 0; }
+}

@@ -1,0 +1,173 @@
+.growing-up-section {
+  position: relative;
+  padding: 120px 20px;
+  background-image: linear-gradient(
+    rgba(11, 11, 19, 0.88),
+    rgba(7, 7, 12, 0.94)
+  ), url('/assets/photos/family_lake_trip.png');
+  background-size: cover;
+  background-position: center 30%;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.growing-container {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* Progression Flow Ribbon (Panel 8) */
+.growing-flow-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.flow-pill {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  padding: 5px 14px;
+  border-radius: 20px;
+  background: rgba(223, 186, 115, 0.08);
+  border: 1px solid rgba(223, 186, 115, 0.2);
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.flow-arrow {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.growing-timeline-track {
+  position: relative;
+  margin-top: 50px;
+  padding: 20px 0;
+}
+
+.growing-central-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: linear-gradient(180deg, transparent, rgba(223, 186, 115, 0.4) 15%, rgba(242, 167, 184, 0.4) 85%, transparent);
+}
+
+.growing-timeline-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 70px;
+  width: 100%;
+}
+
+.timeline-spine-node {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #141422;
+  border: 2px solid var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 0 20px var(--gold-glow);
+}
+
+.node-inner-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  display: none;
+}
+
+.node-step-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold-light);
+}
+
+.row-left {
+  justify-content: flex-start;
+}
+
+.row-right {
+  justify-content: flex-end;
+}
+
+.growing-card {
+  width: calc(50% - 45px);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.growing-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-primary);
+}
+
+.growing-card-media {
+  width: 100%;
+  height: 250px;
+}
+
+.growing-img {
+  width: 100%;
+  height: 100%;
+}
+
+.growing-card-body {
+  padding: 24px;
+}
+
+.growing-stage-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.growing-stage-title {
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  margin: 6px 0 4px 0;
+}
+
+.growing-stage-sub {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.growing-stage-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+@media (max-width: 768px) {
+  .growing-central-line {
+    left: 24px;
+  }
+  .timeline-spine-node {
+    left: 24px;
+  }
+  .row-left, .row-right {
+    justify-content: flex-end;
+  }
+  .growing-card {
+    width: calc(100% - 60px);
+  }
+}

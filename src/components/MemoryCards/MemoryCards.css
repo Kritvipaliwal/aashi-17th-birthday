@@ -1,0 +1,133 @@
+.little-things-section {
+  position: relative;
+  padding: 120px 20px;
+  background: radial-gradient(circle at 30% 70%, #10101b 0%, #07070a 100%);
+  overflow: hidden;
+}
+
+.little-things-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.little-things-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 40px;
+  perspective: 1000px;
+}
+
+.tilt-card-wrapper {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.little-card {
+  position: relative;
+  padding: 30px 26px;
+  border-radius: 18px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.little-card.card-accent-gold {
+  border-color: rgba(223, 186, 115, 0.18);
+}
+
+.little-card.card-accent-gold:hover {
+  border-color: var(--gold-primary);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 25px var(--gold-glow);
+}
+
+.little-card.card-accent-rose {
+  border-color: rgba(242, 167, 184, 0.18);
+}
+
+.little-card.card-accent-rose:hover {
+  border-color: var(--rose-primary);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 25px var(--rose-glow);
+}
+
+.card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.card-icon-bubble {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-accent-gold .card-icon {
+  color: var(--gold-primary);
+}
+
+.card-accent-rose .card-icon {
+  color: var(--rose-primary);
+}
+
+.card-number {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+.card-title {
+  font-size: 1.45rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.card-subtitle {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+
+.card-description {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.card-bottom-line {
+  margin-top: 25px;
+  height: 2px;
+  width: 40px;
+  background: var(--gold-primary);
+  border-radius: 2px;
+  opacity: 0.4;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.little-card:hover .card-bottom-line {
+  width: 70px;
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .little-things-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .little-things-grid {
+    grid-template-columns: 1fr;
+  }
+}

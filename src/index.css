@@ -1,0 +1,231 @@
+/* src/index.css - Luxury Cinematic Design System */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap');
+
+:root {
+  /* Color Palette */
+  --bg-midnight: #07070a;
+  --bg-deep: #0d0d14;
+  --bg-charcoal: #14141f;
+  --bg-glass: rgba(18, 18, 28, 0.65);
+  --bg-glass-card: rgba(26, 26, 38, 0.55);
+  
+  --text-primary: #fbf9f5;
+  --text-secondary: rgba(251, 249, 245, 0.72);
+  --text-muted: rgba(251, 249, 245, 0.45);
+  
+  --gold-primary: #dfba73;
+  --gold-light: #f3dc9e;
+  --gold-dark: #b88f42;
+  --gold-glow: rgba(223, 186, 115, 0.35);
+
+  --rose-primary: #f2a7b8;
+  --rose-light: #fad6e0;
+  --rose-glow: rgba(242, 167, 184, 0.3);
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-gold: rgba(223, 186, 115, 0.25);
+  --border-rose: rgba(242, 167, 184, 0.25);
+
+  /* Fonts */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-editorial: 'Cormorant Garamond', Garamond, serif;
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-handwriting: 'Caveat', cursive, sans-serif;
+
+  /* Shadows */
+  --shadow-cinematic: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(223, 186, 115, 0.1);
+  --shadow-gold: 0 0 30px rgba(223, 186, 115, 0.25);
+  --shadow-rose: 0 0 30px rgba(242, 167, 184, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-midnight);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-midnight);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Film Grain Overlay */
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Cosmic Ambient Background Glows */
+.ambient-glows {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ambient-glow-1 {
+  position: absolute;
+  top: -10%;
+  left: 15%;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(223, 186, 115, 0.07) 0%, transparent 70%);
+  filter: blur(80px);
+  animation: floatOrb 22s ease-in-out infinite alternate;
+}
+
+.ambient-glow-2 {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  width: 55vw;
+  height: 55vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242, 167, 184, 0.06) 0%, transparent 70%);
+  filter: blur(90px);
+  animation: floatOrb 28s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.08); }
+  100% { transform: translate(-30px, 40px) scale(0.95); }
+}
+
+/* Glass Card */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+}
+
+.glass-panel-gold {
+  background: rgba(223, 186, 115, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-gold);
+  border-radius: 16px;
+}
+
+/* Typography Helpers */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+}
+
+.text-gold {
+  color: var(--gold-primary);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #fff 0%, var(--gold-light) 50%, var(--gold-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-rose-gradient {
+  background: linear-gradient(135deg, #fff 0%, var(--rose-light) 50%, var(--rose-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-midnight);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(223, 186, 115, 0.25);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* Buttons */
+.btn-cinema {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 28px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  background: rgba(223, 186, 115, 0.08);
+  border: 1px solid var(--border-gold);
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+
+.btn-cinema::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(223, 186, 115, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn-cinema:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-cinema:hover {
+  background: rgba(223, 186, 115, 0.16);
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 25px var(--gold-glow);
+  transform: translateY(-2px);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

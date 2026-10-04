@@ -1,0 +1,97 @@
+.memory-tag-wrapper {
+  position: absolute;
+  z-index: 25;
+  pointer-events: auto;
+  user-select: none;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+}
+
+/* Positions relative to the photo card */
+.tag-pos-bottom-right {
+  bottom: -10px;
+  right: -10px;
+}
+
+.tag-pos-bottom-left {
+  bottom: -10px;
+  left: -8px;
+}
+
+.tag-pos-top-right {
+  top: -10px;
+  right: -8px;
+}
+
+.tag-pos-top-left {
+  top: -10px;
+  left: -10px;
+}
+
+.tag-pos-bottom-center {
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.memory-tag-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+/* Variant 1: Scrapbook Sticker (Bright playful pop) */
+.tag-variant-sticker .memory-tag-inner {
+  background: #fff8e7;
+  color: #1a1622;
+  border: 1.5px solid #dfba73;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.tag-variant-sticker:hover .memory-tag-inner {
+  background: #ffffff;
+  border-color: #ffd700;
+  box-shadow: 0 6px 18px rgba(223, 186, 115, 0.5);
+}
+
+/* Variant 2: Washi Tape Strip */
+.tag-variant-tape .memory-tag-inner {
+  background: rgba(242, 167, 184, 0.88);
+  color: #2a111a;
+  border-left: 2px dashed rgba(255, 255, 255, 0.5);
+  border-right: 2px dashed rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(4px);
+  padding: 4px 16px;
+}
+
+/* Variant 3: Gold Foil Stamp */
+.tag-variant-stamp .memory-tag-inner {
+  background: linear-gradient(135deg, #dfba73 0%, #b88f42 100%);
+  color: #0d0a0f;
+  border: 1px solid #fff;
+  box-shadow: 0 4px 15px rgba(223, 186, 115, 0.4);
+}
+
+/* Variant 4: Polaroid Handwritten Note */
+.tag-variant-doodle .memory-tag-inner {
+  background: #fbf7ee;
+  color: #a82647;
+  font-family: var(--font-handwriting, cursive);
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-transform: none;
+  border: 1px dashed rgba(168, 38, 71, 0.4);
+  padding: 3px 12px;
+}
+
+.memory-tag-text {
+  line-height: 1.2;
+}

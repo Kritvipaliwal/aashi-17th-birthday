@@ -1,0 +1,264 @@
+/* CinematicIntro.css - Panel 4 Full Composition */
+.cinematic-intro-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 850;
+  background-color: #050408;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.intro-stars-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.intro-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #fff;
+  animation: twinkleStar infinite ease-in-out;
+}
+
+@keyframes twinkleStar {
+  0%, 100% { transform: scale(0.6); opacity: 0.2; }
+  50% { transform: scale(1.4); opacity: 0.9; }
+}
+
+/* Film Strips entering from left and right edges (Panel 4) */
+.intro-film-strip {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.strip-left {
+  left: 20px;
+}
+
+.strip-right {
+  right: 20px;
+}
+
+.film-strip-spine {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #0c0a10;
+  padding: 12px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(223, 186, 115, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(0, 0, 0, 0.9);
+}
+
+.film-frame-cell {
+  position: relative;
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.film-perf-holes {
+  display: flex;
+  justify-content: space-around;
+  padding: 2px 0 4px 0;
+}
+
+.perf {
+  width: 10px;
+  height: 5px;
+  background: #1e1b24;
+  border-radius: 1px;
+}
+
+.film-cell-media {
+  width: 100%;
+  height: 90px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.film-cell-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.1) brightness(0.9);
+}
+
+.film-cell-stamp {
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  color: var(--gold-light);
+  text-align: right;
+  margin-top: 3px;
+  padding-right: 2px;
+  opacity: 0.8;
+}
+
+/* Center Stage */
+.intro-center-stage {
+  position: relative;
+  z-index: 10;
+  max-width: 720px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-line {
+  font-size: 2.2rem;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  color: #fbf9f5;
+  line-height: 1.4;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3), 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.intro-line-emphasis {
+  font-size: 2.8rem;
+  color: var(--gold-light);
+  text-shadow: 0 0 40px var(--gold-glow);
+}
+
+/* Monumental Title Reveal (Panel 4) */
+.intro-monumental-reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.intro-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 30px;
+  background: rgba(223, 186, 115, 0.12);
+  border: 1px solid var(--border-gold);
+  font-size: 0.78rem;
+  letter-spacing: 0.25em;
+  color: var(--gold-light);
+  box-shadow: 0 0 20px rgba(223, 186, 115, 0.15);
+}
+
+.intro-monument {
+  font-size: 3.4rem;
+  letter-spacing: 0.14em;
+  line-height: 1.15;
+  margin: 6px 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.intro-heart-symbol {
+  margin: -4px 0 10px 0;
+}
+
+/* Central Framed Real Photograph */
+.intro-photo-frame-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0 16px 0;
+}
+
+.intro-photo-frame {
+  position: relative;
+  width: 220px;
+  height: 290px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 35px rgba(223, 186, 115, 0.35);
+  border: 2px solid var(--gold-primary);
+}
+
+.intro-photo {
+  width: 100%;
+  height: 100%;
+}
+
+.intro-frame-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  box-shadow: inset 0 0 25px rgba(223, 186, 115, 0.4);
+  pointer-events: none;
+}
+
+.intro-photo-caption {
+  font-size: 1.15rem;
+  color: #f7eedf;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.enter-story-btn {
+  margin-top: 6px;
+  gap: 8px;
+  padding: 12px 28px;
+  font-size: 0.95rem;
+}
+
+.intro-skip-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 6px 16px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 25;
+}
+
+.intro-skip-btn:hover {
+  background: rgba(223, 186, 115, 0.2);
+  border-color: var(--gold-primary);
+  color: var(--gold-light);
+}
+
+@media (max-width: 900px) {
+  .intro-film-strip {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .intro-line {
+    font-size: 1.6rem;
+  }
+  .intro-line-emphasis {
+    font-size: 1.95rem;
+  }
+  .intro-monument {
+    font-size: 2.2rem;
+  }
+  .intro-photo-frame {
+    width: 180px;
+    height: 240px;
+  }
+}

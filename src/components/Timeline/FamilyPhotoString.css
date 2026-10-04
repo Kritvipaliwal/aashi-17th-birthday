@@ -1,0 +1,312 @@
+/* FamilyPhotoString.css */
+.family-string-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 120px 20px 90px 20px;
+  background: #09080e;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background: Darkened Family Photo Overlay */
+.family-bg-photo-canvas {
+  position: absolute;
+  inset: -15px;
+  background-image: url('/assets/photos/family_lake_trip.png');
+  background-size: cover;
+  background-position: center 30%;
+  filter: blur(14px) brightness(0.22) contrast(1.1);
+  transform: scale(1.05);
+  pointer-events: none;
+}
+
+.family-dark-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(9, 8, 14, 0.72) 0%, rgba(5, 4, 8, 0.95) 90%);
+  pointer-events: none;
+}
+
+.family-ambient-warmth {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(223, 186, 115, 0.12) 0%, transparent 70%);
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.family-string-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* The Hanging Installation */
+.photo-string-installation {
+  position: relative;
+  width: 100%;
+  margin-top: 40px;
+  padding-top: 30px;
+}
+
+.curved-string-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.string-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hanging-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 6;
+  padding-top: 25px;
+}
+
+.hanging-photo-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transform-origin: top center;
+}
+
+/* Vertical string drop line */
+.string-hanger-drop {
+  width: 1.5px;
+  height: 22px;
+  background: linear-gradient(180deg, rgba(223, 186, 115, 0.6) 0%, rgba(184, 143, 66, 0.9) 100%);
+  box-shadow: 0 0 5px rgba(223, 186, 115, 0.3);
+}
+
+/* Wooden Clothesline Peg / Metal Clip */
+.string-clip-peg {
+  position: relative;
+  width: 14px;
+  height: 28px;
+  background: linear-gradient(180deg, #c49a62 0%, #8f6530 100%);
+  border-radius: 3px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  z-index: 15;
+  margin-bottom: -8px;
+}
+
+.string-clip-peg.metal-pin {
+  background: linear-gradient(180deg, #e6c888 0%, #b88f42 100%);
+  width: 12px;
+  height: 24px;
+  border-radius: 6px 6px 2px 2px;
+}
+
+.clip-metal-spring {
+  position: absolute;
+  top: 8px;
+  left: -2px;
+  right: -2px;
+  height: 5px;
+  background: #333;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 1px #888;
+}
+
+/* Card Wrapper with Swing Origin */
+.hanging-card-wrapper {
+  position: relative;
+  width: 100%;
+  transform-origin: top center;
+  user-select: none;
+}
+
+.hanging-card-inner {
+  background: #14141f;
+  border: 1px solid rgba(223, 186, 115, 0.3);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75), 0 0 20px rgba(223, 186, 115, 0.12);
+  border-radius: 12px;
+  padding: 12px 12px 18px 12px;
+  transition: all 0.3s ease;
+}
+
+.hanging-photo-frame {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #090910;
+}
+
+.hanging-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hanging-photo-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hanging-zoom-hint {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(10, 10, 18, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.hanging-photo-node:hover .hanging-zoom-hint {
+  opacity: 1;
+}
+
+.hanging-caption-area {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.hanging-title {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.hanging-sub {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.family-string-hint {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--gold-light);
+  opacity: 0.8;
+}
+
+/* Family Modal */
+.family-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 4, 8, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.family-modal-content {
+  position: relative;
+  max-width: 650px;
+  width: 100%;
+  background: #141420;
+  border: 1px solid var(--border-gold);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), 0 0 40px var(--gold-glow);
+  text-align: center;
+}
+
+.family-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-subtle);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.family-modal-close:hover {
+  background: rgba(223, 186, 115, 0.25);
+  border-color: var(--gold-primary);
+}
+
+.family-modal-media {
+  width: 100%;
+  height: 380px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #090910;
+  margin-bottom: 18px;
+}
+
+.family-modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.family-badge {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+}
+
+.family-modal-caption {
+  font-size: 1.6rem;
+  color: #fff;
+  margin: 6px 0;
+}
+
+.family-modal-desc {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 992px) {
+  .hanging-photos-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .hanging-photos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .hanging-photo-frame {
+    height: 180px;
+  }
+}

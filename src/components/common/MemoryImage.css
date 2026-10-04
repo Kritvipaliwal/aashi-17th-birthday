@@ -1,0 +1,123 @@
+.memory-image-container {
+  position: relative;
+  overflow: hidden;
+  background: #0d0d16;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.memory-image-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%; /* Keep face in view */
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  will-change: transform;
+}
+
+.memory-image-element.hidden {
+  opacity: 0;
+  position: absolute;
+}
+
+.memory-image-element.visible {
+  opacity: 1;
+}
+
+.memory-image-container:hover .memory-image-element {
+  transform: scale(1.03);
+}
+
+.memory-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 40%, rgba(223, 186, 115, 0.03) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+}
+
+.memory-image-container:hover .memory-sheen {
+  border-color: rgba(223, 186, 115, 0.3);
+}
+
+/* Fallback & Skeleton */
+.memory-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 40%, #1e1e2d 0%, #0d0d14 100%);
+}
+
+.placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.placeholder-icon-ring {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(223, 186, 115, 0.08);
+  border: 1px solid rgba(223, 186, 115, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.placeholder-icon {
+  color: var(--gold-primary, #dfba73);
+  opacity: 0.85;
+}
+
+.placeholder-sparkle {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  color: var(--rose-primary, #f2a7b8);
+  animation: pulseSparkle 2s ease-in-out infinite;
+}
+
+@keyframes pulseSparkle {
+  0%, 100% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+.placeholder-text {
+  font-family: var(--font-serif, serif);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: var(--text-primary, #fbf9f5);
+  font-weight: 500;
+}
+
+.placeholder-sub {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.8rem;
+  color: var(--text-muted, rgba(251, 249, 245, 0.45));
+}
+
+.placeholder-hint {
+  margin-top: 4px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold-primary, #dfba73);
+  opacity: 0.65;
+  background: rgba(223, 186, 115, 0.1);
+  padding: 3px 10px;
+  border-radius: 20px;
+}

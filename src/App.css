@@ -1,0 +1,42 @@
+.app-root {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--bg-midnight);
+  color: var(--text-primary);
+}
+
+.story-experience {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+.floating-relock-btn {
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  z-index: 950;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(18, 18, 28, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.floating-relock-btn:hover {
+  background: rgba(223, 186, 115, 0.15);
+  border-color: var(--gold-primary);
+  color: var(--gold-light);
+  box-shadow: 0 0 15px var(--gold-glow);
+}

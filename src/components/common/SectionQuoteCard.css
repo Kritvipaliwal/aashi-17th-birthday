@@ -1,0 +1,107 @@
+/* SectionQuoteCard.css */
+.section-quote-card-wrapper {
+  position: relative;
+  max-width: 680px;
+  margin: 50px auto;
+  padding: 0 16px;
+  transform: rotate(var(--card-tilt, -1.5deg));
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+.quote-washi-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(1deg);
+  width: 110px;
+  height: 24px;
+  background: rgba(223, 186, 115, 0.4);
+  border-left: 2px dashed rgba(255, 255, 255, 0.3);
+  border-right: 2px dashed rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 15;
+  backdrop-filter: blur(4px);
+}
+
+.quote-doodle-d1 {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.quote-doodle-d2 {
+  position: absolute;
+  bottom: 20px;
+  left: 25px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.quote-card-inner {
+  position: relative;
+  padding: 36px 36px 30px 36px;
+  background: rgba(20, 20, 30, 0.75);
+  border: 1px solid rgba(223, 186, 115, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(223, 186, 115, 0.1);
+  text-align: center;
+  backdrop-filter: blur(16px);
+  overflow: hidden;
+}
+
+.quote-mark-icon {
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.quote-main-text {
+  font-size: 1.55rem;
+  line-height: 1.5;
+  color: #fbf9f5;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.quote-footer-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.quote-author {
+  font-size: 1.25rem;
+  color: var(--gold-light);
+}
+
+.quote-subtext {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.quote-scrapbook-stamp {
+  position: absolute;
+  bottom: 12px;
+  right: 18px;
+  font-size: 1.05rem;
+  color: rgba(242, 167, 184, 0.85);
+  transform: rotate(-8deg);
+  border: 1px dashed rgba(242, 167, 184, 0.4);
+  padding: 2px 10px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .quote-main-text {
+    font-size: 1.25rem;
+  }
+  .quote-card-inner {
+    padding: 28px 20px 24px 20px;
+  }
+}
