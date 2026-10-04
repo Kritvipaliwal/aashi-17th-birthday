@@ -85,8 +85,42 @@ export default function PoemSection({ onPoemFinished }) {
   const [hasLightBurst, setHasLightBurst] = useState(false);
   const [hasCandleIntense, setHasCandleIntense] = useState(false);
 
+  // Emotional personal voice recording flow states
+  const [isRecordingPlaying, setIsRecordingPlaying] = useState(false);
+  const [hasVoiceEnded, setHasVoiceEnded] = useState(false);
+  const [showNowReadThis, setShowNowReadThis] = useState(false);
+  const [poemUnfolded, setPoemUnfolded] = useState(false);
+
   const poemContainerRef = useRef(null);
   const activeLineRef = useRef(null);
+  const letterStageRef = useRef(null);
+
+  const handleVoicePlayChange = (playing) => {
+    setIsRecordingPlaying(playing);
+  };
+
+  const handleVoiceEnded = () => {
+    setIsRecordingPlaying(false);
+    setHasVoiceEnded(true);
+    // Wait briefly (900ms) then reveal "Now..." "read this."
+    setTimeout(() => {
+      setShowNowReadThis(true);
+    }, 900);
+    // After another 2.5s, smoothly reveal the poem letter
+    setTimeout(() => {
+      setPoemUnfolded(true);
+    }, 2800);
+  };
+
+  const handleUnlockPoemEarly = () => {
+    setShowNowReadThis(true);
+    setPoemUnfolded(true);
+    setTimeout(() => {
+      if (letterStageRef.current) {
+        letterStageRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 150);
+  };
 
   // Trigger twin-side celebratory confetti
   const triggerConfetti = () => {
@@ -287,7 +321,7 @@ export default function PoemSection({ onPoemFinished }) {
 
   return (
     <section 
-      className={`poem-section ${isSpecialYouActive ? 'special-you-mode' : ''}`} 
+      className={`poem-section ${isSpecialYouActive ? 'special-you-mode' : ''} ${isRecordingPlaying ? 'recording-playing' : ''}`} 
       id="poem-section"
       ref={poemContainerRef}
     >
@@ -303,6 +337,39 @@ export default function PoemSection({ onPoemFinished }) {
         lightLeak={true}
         darkGradient="radial-gradient(ellipse at 50% 30%, rgba(20, 14, 22, 0.8) 0%, rgba(8, 6, 10, 0.94) 75%, rgba(4, 3, 5, 0.99) 100%)"
       />
+
+      {/* Warm Ambient Recording Glow */}
+      <div className="poem-recording-glow" />
+
+      {/* Floating Stardust & Soft Bokeh during recording */}
+      <div className="poem-recording-dust">
+        {Array.from({ length: 14 }).map((_, i) => (
+          <div
+            key={i}
+            className="rec-dust-dot"
+            style={{
+              top: `${(i * 19) % 95}%`,
+              left: `${(i * 29) % 95}%`,
+              animationDelay: `${(i * 0.5)}s`,
+              animationDuration: `${6 + (i % 4)}s`
+            }}
+          />
+        ))}
+        {Array.from({ length: 4 }).map((_, i) => (
+          <div
+            key={`bokeh-${i}`}
+            className="rec-bokeh-orb"
+            style={{
+              width: `${140 + i * 40}px`,
+              height: `${140 + i * 40}px`,
+              top: `${15 + i * 20}%`,
+              left: `${10 + (i % 2) * 65}%`,
+              animationDelay: `${i * 1.5}s`,
+              animationDuration: `${10 + i * 2}s`
+            }}
+          />
+        ))}
+      </div>
 
       {/* Subtle Rising Translucent Balloons */}
       <FloatingBalloons />
@@ -363,7 +430,7 @@ export default function PoemSection({ onPoemFinished }) {
       {hasLightBurst && <div className="light-burst-flash" />}
 
       <div className="poem-container">
-        {/* Lead-in Statement */}
+        {/* Emotional Preface with Voice Recording Flow */}
         <motion.div
           className="poem-preface"
           initial={{ opacity: 0, y: 20 }}
@@ -374,56 +441,94 @@ export default function PoemSection({ onPoemFinished }) {
           <div className="poem-badge">
             <Feather size={14} className="text-gold" />
             <span>A PERSONAL LETTER &bull; SEVENTEEN YEARS</span>
-            {/* Secret Easter Egg Icon */}
             <SecretEasterEgg />
           </div>
 
-          <h2 className="poem-whisper-title font-editorial">
-            "There is something I've wanted you to know."
-          </h2>
+          {/* Step 3: "Before you read this..." then "Listen to me first." */}
+          <div className="poem-whisper-title-group">
+            <h2 className="poem-whisper-lead font-editorial">
+              "Before you read this..."
+            </h2>
+            <h3 className="poem-whisper-sublead font-serif text-gold-gradient">
+              Listen to me first.
+            </h3>
+          </div>
 
-          {/* Voice Read Aloud Toggle Header Pill */}
-          <div className="voice-narrator-pill">
-            <button
-              type="button"
-              className={`voice-narrate-btn ${isVoiceEnabled ? 'voice-on' : 'voice-off'}`}
-              onClick={handleToggleVoice}
-              title="Toggle reading aloud"
-            >
-              {isVoiceEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}
-              <span>{isVoiceEnabled ? "Voice Narration: ON" : "Voice Narration: OFF"}</span>
-            </button>
-            {isVoiceEnabled && (
-              <span className="narrator-speaking-label font-sans">
-                {isPlaying ? "♪ Reading aloud..." : "Press Play to listen"}
-              </span>
+          {/* Step 4: Show the elegant voice-recording player */}
+          <div className="poem-voice-player-stage">
+            <VoiceMessage
+              id="poem-voice-message"
+              audio="/assets/audio/poem-voice.mp3"
+              fallbackAudio="/assets/audio/recording-3.mp3"
+              title="A message from me to you"
+              subtitle="Listen before reading the poem."
+              dateTag="BROTHER'S VOICE"
+              theme="rose"
+              onPlayStateChange={handleVoicePlayChange}
+              onEnded={handleVoiceEnded}
+            />
+
+            {/* Optional gentle bypass button so she is never blocked */}
+            {!poemUnfolded && (
+              <button
+                type="button"
+                className="poem-skip-to-letter-btn font-sans"
+                onClick={handleUnlockPoemEarly}
+              >
+                <span>Or read the letter directly</span>
+                <ChevronRight size={13} />
+              </button>
             )}
           </div>
 
-          {/* Moment 2: Personal Voice Recording before the poem */}
-          <div className="poem-voice-lead-block" style={{ maxWidth: '620px', margin: '24px auto 16px auto', textAlign: 'center' }}>
-            <p className="font-editorial text-gold-gradient" style={{ fontSize: '1.4rem', marginBottom: '14px', fontWeight: 600 }}>
-              "Before you read this... Listen to me first."
-            </p>
-
-            <VoiceMessage
-              id={voiceMessages.poem.id}
-              audio={voiceMessages.poem.audio}
-              fallbackAudio={voiceMessages.poem.fallbackAudio}
-              title={voiceMessages.poem.title}
-              subtitle={voiceMessages.poem.subtitle}
-              dateTag={voiceMessages.poem.dateTag}
-              theme="rose"
-            />
-
-            <p className="font-editorial" style={{ marginTop: '14px', fontSize: '1.1rem', color: 'rgba(255, 255, 255, 0.85)', letterSpacing: '0.04em' }}>
-              "Now... read this." &darr;
-            </p>
-          </div>
+          {/* Step 9: Then reveal "Now..." "read this." */}
+          <AnimatePresence>
+            {(showNowReadThis || poemUnfolded) && (
+              <motion.div 
+                className="now-read-this-stage"
+                initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                onClick={() => setPoemUnfolded(true)}
+              >
+                <div className="now-read-badge font-sans">CHAPTER 17 &bull; FROM MY HEART</div>
+                <div className="now-read-text-group">
+                  <span className="now-word font-editorial">"Now..."</span>
+                  <span className="read-this-phrase font-serif text-gold-gradient">read this.</span>
+                </div>
+                <div className="now-down-indicator">&darr;</div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
 
-        {/* The Cinematic Letter Stage */}
-        <div className="cinematic-letter-stage glass-panel">
+        {/* Step 10: Transition smoothly into the existing poem */}
+        <AnimatePresence>
+          {poemUnfolded && (
+            <motion.div
+              ref={letterStageRef}
+              className="cinematic-letter-stage glass-panel"
+              initial={{ opacity: 0, y: 35, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+            >
+              {/* Voice Read Aloud Toggle Header Pill for the written poem lines */}
+              <div className="voice-narrator-pill" style={{ marginBottom: '22px' }}>
+                <button
+                  type="button"
+                  className={`voice-narrate-btn ${isVoiceEnabled ? 'voice-on' : 'voice-off'}`}
+                  onClick={handleToggleVoice}
+                  title="Toggle reading poem lines aloud"
+                >
+                  {isVoiceEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}
+                  <span>{isVoiceEnabled ? "Lines Narration: ON" : "Lines Narration: OFF"}</span>
+                </button>
+                {isVoiceEnabled && (
+                  <span className="narrator-speaking-label font-sans">
+                    {isPlaying ? "♪ Reading poem aloud..." : "Press Play to listen to lines"}
+                  </span>
+                )}
+              </div>
           <div className="letter-corner-accent corner-tl" />
           <div className="letter-corner-accent corner-br" />
 
@@ -524,8 +629,10 @@ export default function PoemSection({ onPoemFinished }) {
               )}
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  </div>
+</section>
   );
 }

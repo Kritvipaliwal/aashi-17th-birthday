@@ -20,7 +20,7 @@ export const voiceMessages = {
 
   poem: {
     id: "poem-message",
-    audio: "/assets/audio/message-2.mp3",
+    audio: "/assets/audio/poem-voice.mp3",
     fallbackAudio: "/assets/audio/recording-3.mp3",
     title: "Before you read this...",
     subtitle: "Listen to me first.",

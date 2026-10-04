@@ -21,7 +21,8 @@ export default function VoiceMessage({
   dateTag = "AUDIO NOTE",
   theme = "gold",
   className = "",
-  onPlayStateChange
+  onPlayStateChange,
+  onEnded
 }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -107,6 +108,7 @@ export default function VoiceMessage({
     setCurrentTime(duration);
     window.dispatchEvent(new CustomEvent('restoreBackgroundMusic'));
     if (onPlayStateChange) onPlayStateChange(false);
+    if (onEnded) onEnded();
   };
 
   // Scrubbing / seeking along timeline

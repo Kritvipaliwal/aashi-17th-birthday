@@ -80,11 +80,11 @@ export default function AudioPlayer({ autoStart = true }) {
 
   useEffect(() => {
     const handleDuck = () => {
-      fadeVolumeTo(0.15, 350);
+      fadeVolumeTo(0.12, 450); // Smooth fade down to 12%
     };
 
     const handleRestore = () => {
-      fadeVolumeTo(1.0, 500);
+      fadeVolumeTo(1.0, 600); // Smooth restoration back to 100%
     };
 
     window.addEventListener('duckBackgroundMusic', handleDuck);

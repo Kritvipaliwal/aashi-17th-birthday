@@ -445,3 +445,196 @@
     font-size: 1.45rem;
   }
 }
+
+/* =========================================================
+   EMOTIONAL PRE-POEM RECORDING STAGE & DUCKING ATMOSPHERE
+   ========================================================= */
+
+.poem-section.recording-playing .cinematic-bg-photo {
+  transform: scale(1.14) !important;
+  transition: transform 44s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.poem-recording-glow {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 580px;
+  height: 580px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(223, 186, 115, 0.22) 0%, rgba(223, 88, 122, 0.16) 40%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.8s ease;
+  z-index: 1;
+}
+
+.poem-section.recording-playing .poem-recording-glow {
+  opacity: 1;
+  animation: recordingWarmAura 5s ease-in-out infinite alternate;
+}
+
+@keyframes recordingWarmAura {
+  0% { transform: translate(-50%, -50%) scale(0.92); opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(1.12); opacity: 1; }
+}
+
+/* Floating dust & soft bokeh during recording */
+.poem-recording-dust {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.poem-section.recording-playing .poem-recording-dust {
+  opacity: 1;
+}
+
+.rec-dust-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(223, 186, 115, 0.75);
+  box-shadow: 0 0 10px rgba(223, 186, 115, 0.9);
+  animation: recDustFloat infinite ease-in-out alternate;
+}
+
+@keyframes recDustFloat {
+  0% { transform: translateY(0) scale(0.8); opacity: 0.2; }
+  100% { transform: translateY(-45px) scale(1.4); opacity: 0.85; }
+}
+
+.rec-bokeh-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242, 167, 184, 0.2) 0%, transparent 70%);
+  filter: blur(25px);
+  animation: recBokehFloat infinite ease-in-out alternate;
+}
+
+@keyframes recBokehFloat {
+  0% { transform: translate(0, 0) scale(0.9); opacity: 0.2; }
+  100% { transform: translate(25px, -30px) scale(1.2); opacity: 0.55; }
+}
+
+/* Pre-voice Title Group */
+.poem-whisper-title-group {
+  margin: 18px auto 26px auto;
+  text-align: center;
+}
+
+.poem-whisper-lead {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 0 0 6px 0;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+}
+
+.poem-whisper-sublead {
+  font-size: clamp(2.3rem, 5.5vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
+  text-shadow: 0 0 35px rgba(223, 186, 115, 0.35);
+}
+
+/* Voice Player Stage */
+.poem-voice-player-stage {
+  max-width: 660px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.poem-skip-to-letter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.55);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  letter-spacing: 0.05em;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.poem-skip-to-letter-btn:hover {
+  border-color: rgba(223, 186, 115, 0.5);
+  color: var(--gold-light);
+  background: rgba(223, 186, 115, 0.08);
+}
+
+/* Step 9: "Now... read this." Reveal Stage */
+.now-read-this-stage {
+  margin: 36px auto 20px auto;
+  max-width: 500px;
+  padding: 22px 28px;
+  background: rgba(20, 14, 26, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(223, 186, 115, 0.45);
+  border-radius: 20px;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.7), 0 0 30px rgba(223, 186, 115, 0.18);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.35s ease;
+}
+
+.now-read-this-stage:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(223, 186, 115, 0.75);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.8), 0 0 40px rgba(223, 186, 115, 0.3);
+}
+
+.now-read-badge {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  color: var(--gold-primary);
+  margin-bottom: 8px;
+}
+
+.now-read-text-group {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+}
+
+.now-word {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-style: italic;
+  color: #ffffff;
+}
+
+.read-this-phrase {
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 700;
+}
+
+.now-down-indicator {
+  font-size: 1.5rem;
+  color: var(--gold-primary);
+  animation: bounceDown 1.8s infinite;
+  margin-top: 6px;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
